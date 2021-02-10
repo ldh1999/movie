@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.movie.Dao.RecommendDao">
+    <insert id="insert">
+        insert into recommend (user,action,science,comedy,suspense,dracula,disaster)values (#{usernum},#{action},#{science},#{comedy},#{suspense},#{dracula},#{disaster});
+    </insert>
+    <delete id="delete">
+        delete from recommend where user=#{num}
+    </delete>
+    <update id="updata">
+        update recommend set ${type}=#{retype} where user=#{num}
+    </update>
+    <select id="query" resultType="com.example.movie.Pojo.Recommend">
+        select *from recommend where user=#{num}
+    </select>
+    <select id="querytype" resultType="Integer">
+        select ${type} from recommend where user=#{num}
+    </select>
+</mapper>
+
+<!--
+
+
+
+-->

@@ -1,0 +1,35 @@
+
+#box{
+    border:1px solid red;
+    position: relative;
+    width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#btn_V{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-top: -32px;
+    margin-left: -32px;
+    display: none;
+    z-index: 99999;
+}
+#gg{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+}
+
+#danmu{
+    position: absolute;
+    width:640px;
+    height: 400px;
+    top:0px;
+    left: 0px;
+
+}

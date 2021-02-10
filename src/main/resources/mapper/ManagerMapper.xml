@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.movie.Dao.MovieInformationDao">
+    <select id="query" resultType="com.example.movie.Pojo.MovieInformation">
+        select * from movie where num=#{num}
+    </select>
+
+    <select id="queryAll" resultType="com.example.movie.Pojo.MovieInformation">
+        select * from movie
+    </select>
+
+
+    <insert id="insert" >
+      insert into movie(name,img,year,score,language,type,introduce,video)values (#{name},#{img},#{year},#{score},#{language},#{type},#{introduce},#{video})
+    </insert>
+
+    <delete id="delete">
+        delete from movie where num=#{num}
+    </delete>
+
+    <select id="queryType" resultType="com.example.movie.Pojo.MovieInformation">
+        select * from movie where type =#{type}
+    </select>
+
+    <select id="querySearch" resultType="com.example.movie.Pojo.MovieInformation">
+        select * from movie  where name like "%"#{keyword}"%"
+    </select>
+
+    <insert id="updateMovieFile">
+        update movie set video=#{movie} where num=#{num}
+    </insert>
+</mapper>

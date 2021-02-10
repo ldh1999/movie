@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.movie.Dao.CodeDao">
+    <insert id="insert">
+        insert into code_table (email,code,timeout)values (#{email},#{code},#{timeout})
+    </insert>
+    <delete id="delete">
+        delete from code_table where email=#{email}
+    </delete>
+    <update id="updata">
+        update code_table set timeout=#{timeout},code=#{code} where email=#{email}
+    </update>
+    <select id="query" resultType="com.example.movie.Pojo.Code">
+        select * from code_table where email=#{email}
+    </select>
+
+</mapper>

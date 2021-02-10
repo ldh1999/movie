@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.movie.Dao.CommentDao">
+    <insert id="insert">
+        insert into comment(commentator,time,content,movieNum)values (#{commentator},#{time},#{content},#{movieNum})
+    </insert>
+    <delete id="delete">
+        delete from comment where num=#{num}
+    </delete>
+    <select id="queryNum" resultType="com.example.movie.Pojo.Comment">
+        select * from comment where num=#{num}
+    </select>
+    <select id="queryAll" resultType="com.example.movie.Pojo.Comment">
+        select *from comment
+    </select>
+    <select id="queryMovie" resultType="com.example.movie.Pojo.Comment">
+        select * from comment where movieNum=#{movieNum}
+    </select>
+</mapper>

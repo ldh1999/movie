@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div class="global-top-navs" style="background-color: #0b0b0b;height: 50px;text-align: center;padding-top: 15px;">
+    <span style="font-size: 20px;color: #cccccc;">找回密码</span>
+</div>
+
+<div id="email_div" style="background-color: #e0e0e0; padding-top: 20px;text-align: center">
+    <span style="font-weight: bold;width: 100%">邮箱验证码找回</span><br><br>
+</div>
+<div id="question_div" style="background-color: #e0e0e0; padding-top: 20px;text-align: center">
+    <span style="font-weight: bold;width: 100%">安全问题找回</span><br><br>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#email_div").click(function () {
+                window.location.href="forget_password_sendEmail";
+            }
+        );
+    });
+</script>
+<script>
+    $(function () {
+        $("#question_div").click(function () {
+                window.location.href="forget_password_question";
+                }
+            );
+        });
+</script>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>信息修改</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- pop-up -->
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //pop-up -->
+    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="css/zoomslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+    <!--/web-fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--//web-fonts-->
+</head>
+<body>
+<!--/main-header-->
+<!--/banner-section-->
+<div id="demo-1" class="banner-inner">
+    <div class="banner-inner-dott">
+        <!--/header-w3l-->
+        <div class="header-w3-agileits" id="home">
+            <div class="inner-header-agile">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1><a  th:href="@{/}"><span>豆</span><span>扮</span>影视</a></h1>
+                    </div>
+                    <!-- navbar-header -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a th:href="@{/}">主页</a></li>
+                            <li><a th:href="@{list}">全部影片</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </nav>
+                <div class="w3ls_search">
+                    <div class="cd-main-header">
+                        <ul class="cd-header-buttons">
+                            <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                        </ul> <!-- cd-header-buttons -->
+                    </div>
+                    <div id="cd-search" class="cd-search">
+                        <form th:action="@{Search}" method="post">
+                            <input name="search" type="search" placeholder="搜索...">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--//header-w3l-->
+    </div>
+</div>
+<!--/banner-section-->
+<!--//main-header-->
+<!--/banner-bottom-->
+
+<!--//banner-bottom-->
+<!-- Modal1 -->
+
+<!-- //Modal1 -->
+<!-- breadcrumb -->
+<div class="w3_breadcrumb">
+    <div class="breadcrumb-inner">
+        <ul>
+            <li><a th:href="@{/}">Home</a><i>//</i></li>
+            <li>信息</li>
+        </ul>
+    </div>
+</div>
+<!-- //breadcrumb -->
+<!--/content-inner-section-->
+<div class="w3_content_agilleinfo_inner">
+    <div class="agile_featured_movies">
+        <div class="inner-agile-w3l-part-head">
+            <h3>修改个人信息</h3>
+        </div>
+        <div class="w3_mail_grids">
+            <form method="post" id="form_information">
+                <div class="col-md-6 w3_agile_mail_grid">
+                    <span class="input input&#45;&#45;ichiro">
+                        <input class="input__field input__field&#45;&#45;ichiro" type="text" id="input-25" name="name" placeholder=" " required="" th:value="${user.getName()}"/>
+                        <label class="input__label input__label&#45;&#45;ichiro" for="input-25">
+                            <span class="input__label-content input__label-content&#45;&#45;ichiro">昵称</span>
+                        </label>
+                    </span>
+                    <span class="input input&#45;&#45;ichiro">
+                        <input class="input__field input__field&#45;&#45;ichiro" type="email" id="input-26" name="email" placeholder=" " required="" th:value="${user.getEmail()}"/>
+                        <label class="input__label input__label&#45;&#45;ichiro" for="input-26">
+                            <span class="input__label-content input__label-content&#45;&#45;ichiro">修改绑定邮箱</span>
+                        </label>
+                    </span>
+                    <span class="input input&#45;&#45;ichiro">
+                        <input class="input__field input__field&#45;&#45;ichiro" type="email" id="input-27" name="code" placeholder=" " required="" />
+                        <label class="input__label input__label&#45;&#45;ichiro" for="input-27">
+                            <span class="input__label-content input__label-content&#45;&#45;ichiro">验证码</span>
+                        </label>
+                    </span>
+
+                    <!--<input id="sub_information" type="submit" value="确认更改">-->
+                </div>
+                <!--<div class="col-md-6 w3_agile_mail_grid two">
+                    <textarea name="Message" placeholder="Your Message" required=""></textarea>
+                    <input type="submit" value="Submit">
+                </div>-->
+                <div class="clearfix"> </div>
+            </form>
+            <input id="send_email" type="submit" value="发送验证码">
+            <input id="sub_information" type="submit" value="确认更改">
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <br><br><br><br><br><br><br>
+
+</div>
+<!--//content-inner-section-->
+
+
+<!--/footer-bottom-->
+<div class="contact-w3ls" id="contact">
+    <div class="footer-w3lagile-inner">
+        <h2>该网站只用于学习交流，不用于任何商业用途</h2>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- Dropdown-Menu-JavaScript -->
+<script>
+    $(document).ready(function(){
+        $(".dropdown").hover(
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+</script>
+<!-- //Dropdown-Menu-JavaScript -->
+<!-- search-jQuery -->
+<script src="js/main.js"></script>
+<!-- //search-jQuery -->
+
+
+<!--/script-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!--end-smooth-scrolling-->
+<script src="js/bootstrap.js"></script>
+
+<script>
+    $(function () {
+        $("#send_email").click(function () {
+            alert("点击确定后,请等待");
+            $.ajax({
+                    url:"email/send",
+                    contentType:"application/x-www-form-urlencoded",
+                    dataType:"json",
+                    type:"post",
+                    data:{
+                        email_send:$('#input-26').val()
+                    },
+                    success:function (data) {
+                        alert(data.state);
+                        if(data.state=="250"){
+                            alert("不能含有空值");
+                        }else if(data.state=="400"){
+                            alert("成功");
+                        }
+                    },
+                    error:function () {
+                        alert("error");
+                        // window.location.href('enroll/person_main');//localhost:8080/WEB-INF/pages/person_main.jsp
+                    }
+                }
+            );
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        $("#sub_information").click(function () {
+            $.ajax({
+                    url:"re_information",
+                    contentType:"application/x-www-form-urlencoded",
+                    dataType:"json",
+                    type:"post",
+                    data:$('#form_information').serialize(),
+                    success:function (data) {
+                        alert(data.state);
+                        if(data.state=="250"){
+                            alert("不能含有空值");
+                        }else if(data.state=="400"){
+                            alert("成功");
+                        }
+                    },
+                    error:function () {
+                        alert("error");
+                        alert($("#form_information").serialize());
+                        // window.location.href('enroll/person_main');//localhost:8080/WEB-INF/pages/person_main.jsp
+                    }
+                }
+            );
+        });
+    });
+</script>
+
+
+</body>
+</html>

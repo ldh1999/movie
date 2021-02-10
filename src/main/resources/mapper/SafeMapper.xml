@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.movie.Dao.SafeDao">
+    <insert id="insert">
+        insert into safe (num,question,answer)values (#{num},#{question},#{answer})
+    </insert>
+    <delete id="delete">
+        delete from safe where num=#{num}
+    </delete>
+    <update id="updata">
+        update safe set question=#{question},answer=#{answer} where num=#{num}
+    </update>
+    <select id="query" resultType="com.example.movie.Pojo.Safe">
+        select * from safe where num=#{num}
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改安全问题</title>
+    <link href="css/flat.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+<div class="global-top-navs" style="background-color: #0b0b0b;height: 50px;text-align: center;padding-top: 15px;">
+    <span style="font-size: 20px;color: #cccccc;">修改安全问题</span>
+</div>
+<div style="background-color: #e0e0e0; padding-top: 20px;">
+    <form id="safe_form" method="post">
+        <span style="font-weight: bold">问题：</span><input name="question" type="text" style="width: 80%;height: 40px; " th:value="${safe.getQuestion()}"/><br><br>
+        <span style="font-weight: bold">答案：</span><input name="answer" type="text" style="width: 80%;height: 40px;" th:value="${safe.getAnswer()}"/><br><br/>
+    </form>
+</div>
+
+<div id="re_safe_btn" style="background-color: #006dcc; height: 40px;text-align: center;padding-top: 10px;width: 100%;">
+    <span style="font-size: 20px;color: #cccccc;font-weight: bold">提交</span>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#re_safe_btn").click(function () {
+            $.ajax({
+                    url:"re_safe_question",
+                    contentType:"application/x-www-form-urlencoded",
+                    dataType:"json",
+                    type:"post",
+                    data:$('#safe_form').serialize(),
+                    success:function (data) {
+                        if (data.state=="400"){
+                            alert("设置完成");
+                            window.history.back();
+                        }
+                    },
+                    error:function () {
+                        alert("error");
+                        alert($("#safe_form").serialize());
+                        // window.location.href('enroll/person_main');//localhost:8080/WEB-INF/pages/person_main.jsp
+                    }
+                }
+            );
+        });
+    });
+</script>
+</html>
